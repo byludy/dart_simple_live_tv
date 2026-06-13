@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
     push:
         tags:
-            - "dev_tv_v*"
+            - "tv*"
 jobs:
     build-tv:
         runs-on: macos-latest
@@ -14,8 +14,8 @@ jobs:
             #签出代码
             - uses: actions/checkout@v4
               with:
-                  ref: dev
-
+                  fetch-depth: 0
+  
             #APK签名设置
             - name: Download Android keystore
               id: android_tv_keystore
